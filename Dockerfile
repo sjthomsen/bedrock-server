@@ -8,11 +8,13 @@ RUN apt-get update && \
 
 RUN mkdir /bedrock-server/config && \
     mv /bedrock-server/server.properties /bedrock-server/config && \
-    ln -s /bedrock-server/config/server.properties /bedrock-server/server.properties
+    ln -s /bedrock-server/config/server.properties /bedrock-server/server.properties && \
+    touch /bedrock-server/config/whitelist.json && \
+    ln -s /bedrock-server/config/whitelist.json /bedrock-server/whitelist.json
 
 EXPOSE 19132/udp
 
-VOLUME /bedrock-server/worlds /bedrock-server/server.properties.dir
+VOLUME /bedrock-server/worlds /bedrock-server/config
 
 WORKDIR /bedrock-server
 ENV LD_LIBRARY_PATH=.
