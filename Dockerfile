@@ -6,9 +6,9 @@ RUN apt-get update && \
     unzip bedrock-server.zip -d bedrock-server && \
     rm bedrock-server.zip
 
-RUN mkdir /bedrock-server/server.properties.dir && \
-    rm /bedrock-server/server.properties && \
-    ln -s /bedrock-server/server.properties.dir/server.properties /bedrock-server/server.properties
+RUN mkdir /bedrock-server/config && \
+    mv /bedrock-server/server.properties /bedrock-server/config && \
+    ln -s /bedrock-server/config/server.properties /bedrock-server/server.properties
 
 EXPOSE 19132/udp
 
