@@ -12,7 +12,7 @@ RUN mkdir /bedrock-server/config && \
 
 EXPOSE 19132/udp
 
-VOLUME /bedrock-server/worlds /bedrock-server/server.properties.dir
+VOLUME /bedrock-server/worlds /bedrock-server/config
 
 WORKDIR /bedrock-server
 ENV LD_LIBRARY_PATH=.
